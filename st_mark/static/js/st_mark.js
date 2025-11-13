@@ -281,6 +281,60 @@ class AjaxHandler {
     setDefaults(newDefaults) {
         this.defaultConfig = { ...this.defaultConfig, ...newDefaults };
     }
+
+    /**
+     * Set a cookie with the specified name, value, and expiration days.
+     * @param {string} name - Cookie name.
+     * @param {string} value - Cookie value.
+     * @param {number} [days=7] - Expiration days (default: 7).
+     * @param {string} [path='/'] - Cookie path (default: '/').
+     */
+    setCookie(name, value, days = 7, path = '/') {
+        const expires = new Date();
+        expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+        document.cookie = `${name}=${encodeURIComponent(value)};expires=${expires.toUTCString()};path=${path}`;
+    }
+
+    /**
+     * Get the value of a cookie by name.
+     * @param {string} name - Cookie name.
+     * @returns {string|null} - Cookie value or null if not found.
+     */
+    getCookie(name) {
+        const nameEQ = `${name}=`;
+        const ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+        }
+        return null;
+    }
+
+    /**
+     * Delete a cookie by name.
+     * @param {string} name - Cookie name.
+     * @param {string} [path='/'] - Cookie path (default: '/').
+     */
+    deleteCookie(name, path = '/') {
+        this.setCookie(name, '', -1, path);
+    }
+
+    /**
+     * Check if cookies are enabled in the browser.
+     * @returns {boolean} - True if cookies are enabled.
+     */
+    areCookiesEnabled() {
+        try {
+            const testCookie = 'testcookie';
+            this.setCookie(testCookie, 'testvalue');
+            const cookieEnabled = this.getCookie(testCookie) === 'testvalue';
+            this.deleteCookie(testCookie);
+            return cookieEnabled;
+        } catch (e) {
+            return false;
+        }
+    }
 }
 
 // Expose globally under a safe namespace

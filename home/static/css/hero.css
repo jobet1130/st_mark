@@ -1,0 +1,21 @@
+/* Hero Section Custom Styles */
+
+/* Background gradient overlay */
+.bg-gradient-primary {
+  background: linear-gradient(to right, hsl(210 80% 42% / 0.9), hsl(210 80% 42% / 0.6));
+}
+
+/* Z-index for proper layering */
+.z-10 {
+  z-index: 10;
+}
+
+/* Positioning utility */
+.bottom-8 {
+  bottom: 2rem;
+}
+
+/* Object fit utility for Bootstrap < 5 */
+.object-fit-cover {
+  object-fit: cover;
+}

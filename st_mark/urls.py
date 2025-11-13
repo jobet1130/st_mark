@@ -8,6 +8,7 @@ from wagtail.documents import urls as wagtaildocs_urls
 
 from search import views as search_views
 from . import views
+from home import views as home_views
 
 urlpatterns = [
     path("django-admin/", admin.site.urls),
@@ -15,8 +16,12 @@ urlpatterns = [
     path("documents/", include(wagtaildocs_urls)),
     path("search/", search_views.search, name="search"),
     path("api/navigation/", views.NavigationLinksView.as_view(), name="navigation-api"),
+    path("api/social/stats/", views.SocialStatsView.as_view(), name="social-stats-api"),
+    path("api/hero-content/", home_views.HeroAPIView.as_view(), name="hero-content-api"),
+    path("api/hero-navigation/", home_views.HeroAPIView.as_view(), name="hero-navigation-api"),
+    path("api/site-info/", home_views.SiteInfoAPIView.as_view(), name="site-info-api"),
+    path("api/statistics/", home_views.StatisticsAPIView.as_view(), name="statistics-api"),
 ]
-
 
 if settings.DEBUG:
     from django.conf.urls.static import static

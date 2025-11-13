@@ -1,0 +1,33 @@
+{% load static %}
+<section class="position-relative vh-100 d-flex align-items-center justify-content-center overflow-hidden hero-section">
+  <!-- Background Image with Overlay -->
+  <div class="position-absolute top-0 start-0 w-100 h-100">
+    <img src="{% static 'images/campus-hero.jpg' %}" alt="St. Mark University Campus" class="w-100 h-100 object-fit-cover">
+    <div class="position-absolute top-0 start-0 w-100 h-100 bg-gradient-primary"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="position-relative z-10 container mx-auto px-4 text-center text-white">
+    <h1 class="display-3 fw-bold mb-4 animate-fade-in-up">
+      Empowering Minds,<br>Building the Future
+    </h1>
+    <p class="fs-3 mb-5 mx-auto animate-fade-in-up" style="animation-delay: 0.1s; max-width: 50rem;">
+      Join a community of scholars and innovators at St. Mark University, where excellence meets opportunity.
+    </p>
+    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center animate-fade-in-up" style="animation-delay: 0.2s;">
+      <a href="/academics" class="btn btn-primary btn-lg px-4">
+        Explore Programs <i class="fas fa-arrow-right ms-2"></i>
+      </a>
+      <a href="/admissions" class="btn btn-warning btn-lg px-4 text-dark">
+        Apply Today
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="position-absolute bottom-8 start-50 translate-middle-x animate-bounce">
+    <div class="rounded-pill border border-2 border-white d-flex align-items-start justify-content-center p-2" style="width: 1.5rem; height: 2.5rem;">
+      <div class="rounded-pill bg-white animate-pulse" style="width: 0.375rem; height: 0.75rem;"></div>
+    </div>
+  </div>
+</section>

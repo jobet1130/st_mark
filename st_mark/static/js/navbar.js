@@ -19,7 +19,15 @@ class NavbarHandler {
 
     init() {
         this.fetchNavigationData()
-            .then(data => this.populateNavigation(data))
+            .then(data => {
+                // Ensure we're passing an array to populateNavigation
+                if (data && Array.isArray(data)) {
+                    this.populateNavigation(data);
+                } else {
+                    console.warn('Navbar data is not a valid array, using fallback');
+                    this.populateNavigation(this.getStaticNavigation());
+                }
+            })
             .catch(error => {
                 console.warn('Failed to load navbar data from API, using fallback:', error);
                 // Fallback to static navigation if API fails
@@ -31,7 +39,12 @@ class NavbarHandler {
         try {
             const response = await $.ajax({ url: this.apiUrl, dataType: 'json' });
             console.log('Navigation data fetched:', response);
-            return response;
+            // Extract the data array from the response
+            if (response && response.data && Array.isArray(response.data)) {
+                return response.data;
+            } else {
+                throw new Error('Invalid response format: expected data array');
+            }
         } catch (error) {
             this.currentAttempt++;
             console.warn(`Attempt ${this.currentAttempt} failed:`, error);
@@ -45,18 +58,36 @@ class NavbarHandler {
     }
 
     populateNavigation(navItems) {
+        // Ensure navItems is a valid array before proceeding
+        if (!navItems || !Array.isArray(navItems)) {
+            console.error('populateNavigation expects a valid array, received:', typeof navItems, navItems);
+            // Use fallback data
+            navItems = this.getStaticNavigation();
+        }
+
         const desktopNav = $(this.desktopNavSelector);
         if (!desktopNav.length) return;
 
         desktopNav.empty();
-        navItems.forEach(item => {
-            const link = $('<a>')
-                .addClass('nav-link')
-                .attr('href', item.path)
-                .text(item.name);
-            const li = $('<li>').addClass('nav-item').append(link);
-            desktopNav.append(li);
-        });
+        
+        // Additional safety check before calling forEach
+        if (navItems && Array.isArray(navItems) && navItems.length > 0) {
+            navItems.forEach(item => {
+                // Ensure item has required properties
+                if (item && typeof item === 'object' && item.path && item.name) {
+                    const link = $('<a>')
+                        .addClass('nav-link')
+                        .attr('href', item.path)
+                        .text(item.name);
+                    const li = $('<li>').addClass('nav-item').append(link);
+                    desktopNav.append(li);
+                } else {
+                    console.warn('Skipping invalid navigation item:', item);
+                }
+            });
+        } else {
+            console.warn('No valid navigation items to display');
+        }
     }
 
     // Fallback static navigation data
