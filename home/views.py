@@ -158,3 +158,103 @@ class QuickLinksClickAPIView(View):
                 'status': 'error',
                 'message': f'An error occurred: {str(e)}'
             }, status=500)
+
+
+class WelcomeSectionAPIView(View):
+    """
+    API endpoint for welcome section content and interactions
+    """
+    
+    def get(self, request):
+        """
+        Return dynamic welcome section content
+        """
+        data = {
+            'imageSrc': '/static/images/students-studying.jpg',
+            'yearsOfExcellence': '40+',
+            'welcomeText': 'Welcome to St. Mark University',
+            'heading': 'Shaping Leaders, Advancing Knowledge',
+            'description': 'At St. Mark University, we are committed to providing world-class education that prepares students for success in an ever-changing global landscape. Our diverse community of scholars, researchers, and innovators work together to push the boundaries of knowledge and create positive impact in society.',
+            'highlights': [
+                'Over 40 years of academic excellence',
+                'Distinguished faculty with industry expertise',
+                'State-of-the-art research facilities',
+                'Global partnerships and exchange programs',
+                '95% graduate employment rate'
+            ],
+            'links': {
+                'learnMore': '/about',
+                'admission': '/admissions'
+            }
+        }
+        
+        return JsonResponse({
+            'status': 'success',
+            'data': data,
+            'message': 'Welcome section content retrieved successfully'
+        })
+    
+    @method_decorator(csrf_exempt)
+    def post(self, request):
+        """
+        Handle navigation requests and highlight interactions
+        """
+        try:
+            # Parse JSON data from request
+            data = json.loads(request.body.decode('utf-8'))
+            action = data.get('action', '')
+            timestamp = data.get('timestamp', '')
+            
+            # Handle different actions
+            if action == 'navigate':
+                target = data.get('target', '')
+                # Log the navigation (in a real app, you might save this to a database)
+                print(f"Welcome section navigation to {target} at {timestamp}")
+                
+                # Determine URL based on target
+                urls = {
+                    'about': '/about',
+                    'admissions': '/admissions'
+                }
+                url = urls.get(target, '/')
+                
+                return JsonResponse({
+                    'status': 'success',
+                    'message': 'Navigation request processed',
+                    'data': {
+                        'target': target,
+                        'url': url,
+                        'timestamp': timestamp
+                    }
+                })
+                
+            elif action == 'highlight_interaction':
+                highlightIndex = data.get('highlightIndex', -1)
+                # Log the interaction (in a real app, you might save this to a database)
+                print(f"Highlight {highlightIndex} interacted with at {timestamp}")
+                
+                return JsonResponse({
+                    'status': 'success',
+                    'message': 'Highlight interaction recorded',
+                    'data': {
+                        'highlightIndex': highlightIndex,
+                        'timestamp': timestamp
+                    }
+                })
+                
+            else:
+                return JsonResponse({
+                    'status': 'error',
+                    'message': 'Invalid action specified'
+                }, status=400)
+                
+        except json.JSONDecodeError:
+            return JsonResponse({
+                'status': 'error',
+                'message': 'Invalid JSON data'
+            }, status=400)
+        except Exception as e:
+            return JsonResponse({
+                'status': 'error',
+                'message': f'An error occurred: {str(e)}'
+            }, status=500)

@@ -22,6 +22,7 @@ urlpatterns = [
     path("api/site-info/", home_views.SiteInfoAPIView.as_view(), name="site-info-api"),
     path("api/statistics/", home_views.StatisticsAPIView.as_view(), name="statistics-api"),
     path("api/quick-links-click/", home_views.QuickLinksClickAPIView.as_view(), name="quick-links-click-api"),
+    path("api/welcome-section/", home_views.WelcomeSectionAPIView.as_view(), name="welcome-section-api"),
 ]
 
 if settings.DEBUG:

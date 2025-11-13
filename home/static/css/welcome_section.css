@@ -1,0 +1,74 @@
+/* Welcome Section Styles using Bootstrap classes */
+.object-fit-cover {
+  object-fit: cover;
+}
+
+/* Image container with padding for badge */
+.welcome-image-container {
+  height: 500px;
+  position: relative;
+  overflow: visible;
+}
+
+@media (max-width: 767.98px) {
+  .welcome-image-container {
+    height: 350px;
+  }
+}
+
+/* Responsive badge styles */
+.years-excellence-badge {
+  width: 100px;
+  height: 100px;
+  transform: translate(-5%, -2%);
+  overflow: visible;
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .years-excellence-badge {
+    width: 140px;
+    height: 140px;
+    transform: translate(-8%, -3%);
+  }
+}
+
+@media (min-width: 992px) {
+  .years-excellence-badge {
+    width: 160px;
+    height: 160px;
+    transform: translate(-10%, -5%);
+  }
+}
+
+.highlight-item {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.highlight-item:hover {
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+.highlighted {
+  background-color: rgba(59, 130, 246, 0.1);
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease;
+}
+
+.highlight-item .fa-check-circle {
+  font-size: 1.25rem;
+}
+
+/* Visually hidden class for screen readers */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}

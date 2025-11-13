@@ -1,0 +1,72 @@
+{% load static %}
+<section class="py-5 bg-light">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <!-- Image -->
+      <div class="col-lg-6 mb-4 mb-lg-0 position-relative p-5">
+        <div class="rounded shadow overflow-hidden welcome-image-container">
+          <img
+            src="{% static 'images/students-studying.jpg' %}"
+            alt="Students at St. Mark University"
+            class="img-fluid h-100 w-100 object-fit-cover"
+            id="students-image"
+          />
+        </div>
+        <!-- "Hanging" badge positioned at the bottom-right corner of the image -->
+        <div class="position-absolute bottom-0 end-0 bg-warning rounded-circle p-3 p-md-4 text-center shadow years-excellence-badge">
+          <div class="text-dark h-100 d-flex flex-column justify-content-center align-items-center">
+            <div class="display-5 display-md-4 fw-bold mb-1" id="years-excellence">40+</div>
+            <div class="fw-semibold small text-center">Years of<br />Excellence</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content with moderate spacing -->
+      <div class="col-lg-6 p-4 p-lg-5 welcome-content-mobile">
+        <div class="badge bg-primary-subtle text-primary rounded-pill mb-3" id="welcome-badge">
+          {{ value.welcome_text|default:"Welcome to St. Mark University" }}
+        </div>
+        <h2 class="display-5 fw-bold text-dark mb-4" id="main-heading" role="heading" aria-level="2">
+          {{ value.heading|default:"Shaping Leaders, Advancing Knowledge" }}
+        </h2>
+        <p class="lead text-muted mb-4" id="description">
+          {{ value.description|default:"At St. Mark University, we are committed to providing world-class education that prepares students for success in an ever-changing global landscape. Our diverse community of scholars, researchers, and innovators work together to push the boundaries of knowledge and create positive impact in society." }}
+        </p>
+
+        <!-- Highlights -->
+        <div class="mb-4" id="highlights-container">
+          {% if value.highlights %}
+            {% for highlight in value.highlights %}
+            <div class="d-flex align-items-start highlight-item mb-2" data-index="{{ forloop.counter0 }}">
+              <i class="fas fa-check-circle text-primary mt-1 me-2" style="font-size: 1.25rem;" aria-hidden="true"></i>
+              <span class="text-dark">{{ highlight }}</span>
+            </div>
+            {% endfor %}
+          {% else %}
+            <div class="d-flex align-items-start highlight-item mb-2">
+              <i class="fas fa-check-circle text-primary mt-1 me-2" style="font-size: 1.25rem;" aria-hidden="true"></i>
+              <span class="text-dark">Over 40 years of academic excellence</span>
+            </div>
+            <div class="d-flex align-items-start highlight-item mb-2">
+              <i class="fas fa-check-circle text-primary mt-1 me-2" style="font-size: 1.25rem;" aria-hidden="true"></i>
+              <span class="text-dark">Distinguished faculty with industry expertise</span>
+            </div>
+            <div class="d-flex align-items-start highlight-item mb-2">
+              <i class="fas fa-check-circle text-primary mt-1 me-2" style="font-size: 1.25rem;" aria-hidden="true"></i>
+              <span class="text-dark">State-of-the-art research facilities</span>
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="d-flex flex-column flex-sm-row gap-3">
+          <button class="btn btn-primary btn-lg" id="learn-more-btn">
+            Learn More About Us
+          </button>
+          <button class="btn btn-outline-primary btn-lg" id="admission-btn">
+            Admission Requirements
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
