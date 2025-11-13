@@ -1,0 +1,149 @@
+/*!
+ * St. Mark University Design System
+ * Author: Jobet Casquejo
+ * Description: 
+ * This CSS file defines the **design system** for St. Mark University, including all colors, fonts, gradients, shadows, and spacing. 
+ * Colors are defined in **HSL** format for easier theming and dynamic adjustments.
+ * 
+ * Features:
+ * - Light and dark mode support
+ * - University color palette: Blue, Gold, White
+ * - Typography tokens for headings and body
+ * - Shadows, borders, and radii standardized
+ * - CSS variables for easy theming and maintenance
+ */
+
+/* =========================
+   :root - Light Mode Tokens
+   ========================= */
+:root {
+  /* ---------------------
+     Global Colors
+     --------------------- */
+  --background: 0 0% 100%;          /* Main background - white */
+  --foreground: 210 15% 20%;        /* Main text color - dark blue/gray */
+
+  --card: 0 0% 100%;                 /* Card background */
+  --card-foreground: 210 15% 20%;    /* Card text color */
+
+  --popover: 0 0% 100%;              /* Popover background */
+  --popover-foreground: 210 15% 20%; /* Popover text color */
+
+  /* ---------------------
+     Primary & Secondary Colors
+     --------------------- */
+  --primary: 210 80% 42%;           /* Deep Academic Blue */
+  --primary-foreground: 0 0% 100%;  
+  --primary-hover: 210 80% 36%;     
+
+  --secondary: 210 40% 96%;         /* Light Blue backgrounds */
+  --secondary-foreground: 210 15% 20%;
+
+  --gold: 45 95% 55%;               /* Gold - Excellence and prestige */
+  --gold-foreground: 210 15% 20%;
+  --gold-hover: 45 95% 48%;
+
+  --muted: 210 30% 95%;             /* Muted backgrounds */
+  --muted-foreground: 210 10% 45%;
+
+  --accent: 210 60% 50%;            /* Accent color */
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 84.2% 60.2%;     /* Error / destructive actions */
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 210 25% 88%;            /* Standard border color */
+  --input: 210 25% 88%;             /* Input field background */
+  --ring: 210 80% 42%;              /* Focus ring color */
+
+  --radius: 0.5rem;                 /* Standard border radius */
+
+  /* ---------------------
+     University-specific Design Tokens
+     --------------------- */
+  --hero-gradient-start: 210 80% 42%;
+  --hero-gradient-end: 210 80% 28%;
+  --card-shadow: 210 20% 70%;
+  
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);  /* Smooth transitions */
+  --shadow-elegant: 0 4px 20px -2px hsl(var(--card-shadow) / 0.15);
+  --shadow-hover: 0 8px 30px -4px hsl(var(--card-shadow) / 0.25);
+
+  /* ---------------------
+     Sidebar Tokens
+     --------------------- */
+  --sidebar-background: 0 0% 98%;
+  --sidebar-foreground: 240 5.3% 26.1%;
+  --sidebar-primary: 240 5.9% 10%;
+  --sidebar-primary-foreground: 0 0% 98%;
+  --sidebar-accent: 240 4.8% 95.9%;
+  --sidebar-accent-foreground: 240 5.9% 10%;
+  --sidebar-border: 220 13% 91%;
+  --sidebar-ring: 217.2 91.2% 59.8%;
+}
+
+/* =========================
+   Dark Mode Tokens
+   ========================= */
+.dark {
+  --background: 210 20% 10%;
+  --foreground: 0 0% 98%;
+
+  --card: 210 20% 12%;
+  --card-foreground: 0 0% 98%;
+
+  --popover: 210 20% 12%;
+  --popover-foreground: 0 0% 98%;
+
+  --primary: 210 70% 55%;
+  --primary-foreground: 0 0% 100%;
+  --primary-hover: 210 70% 48%;
+
+  --secondary: 210 20% 18%;
+  --secondary-foreground: 0 0% 98%;
+
+  --gold: 45 95% 60%;
+  --gold-foreground: 210 15% 20%;
+  --gold-hover: 45 95% 52%;
+
+  --muted: 210 20% 18%;
+  --muted-foreground: 210 10% 65%;
+
+  --accent: 210 60% 55%;
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 62.8% 50%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 210 20% 22%;
+  --input: 210 20% 22%;
+  --ring: 210 70% 55%;
+
+  --card-shadow: 210 20% 5%;
+
+  --sidebar-background: 240 5.9% 10%;
+  --sidebar-foreground: 240 4.8% 95.9%;
+  --sidebar-primary: 224.3 76.3% 48%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 240 3.7% 15.9%;
+  --sidebar-accent-foreground: 240 4.8% 95.9%;
+  --sidebar-border: 240 3.7% 15.9%;
+  --sidebar-ring: 217.2 91.2% 59.8%;
+}
+
+/* =========================
+   Global Styles
+   ========================= */
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+}
