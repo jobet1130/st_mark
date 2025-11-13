@@ -1,0 +1,415 @@
+/* Footer styles matching the React component */
+footer.bg-primary {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+footer .text-primary-foreground {
+  color: hsl(var(--primary-foreground));
+}
+
+footer .text-primary-foreground\/80 {
+  color: hsl(var(--primary-foreground) / 0.8);
+}
+
+footer .text-primary-foreground\/60 {
+  color: hsl(var(--primary-foreground) / 0.6);
+}
+
+footer .bg-gold {
+  background-color: hsl(var(--gold));
+}
+
+footer .text-gold {
+  color: hsl(var(--gold));
+}
+
+footer .text-gold-foreground {
+  color: hsl(var(--gold-foreground));
+}
+
+footer .hover\:text-gold:hover {
+  color: hsl(var(--gold));
+}
+
+footer .bg-primary-foreground\/10 {
+  background-color: hsl(var(--primary-foreground) / 0.1);
+}
+
+footer .hover\:bg-gold:hover {
+  background-color: hsl(var(--gold));
+}
+
+footer .transition-colors {
+  transition: color 0.2s ease;
+}
+
+footer .transition-all {
+  transition: all 0.2s ease;
+}
+
+footer .hover\:scale-110:hover {
+  transform: scale(1.1);
+}
+
+footer .container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  footer .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  footer .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  footer .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  footer .container {
+    max-width: 1280px;
+  }
+}
+
+footer .mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer .px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+footer .py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer .grid {
+  display: grid;
+}
+
+footer .grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@media (min-width: 768px) {
+  footer .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  footer .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+footer .gap-8 {
+  gap: 2rem;
+}
+
+footer .space-y-2 > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 0.5rem;
+}
+
+footer .space-y-3 > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 0.75rem;
+}
+
+footer .space-x-2 > :not([hidden]) ~ :not([hidden]) {
+  margin-left: 0.5rem;
+}
+
+footer .space-x-3 > :not([hidden]) ~ :not([hidden]) {
+  margin-left: 0.75rem;
+}
+
+footer .flex {
+  display: flex;
+}
+
+footer .flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+footer .items-center {
+  align-items: center;
+}
+
+footer .items-start {
+  align-items: flex-start;
+}
+
+footer .justify-center {
+  justify-content: center;
+}
+
+footer .w-10 {
+  width: 2.5rem;
+}
+
+footer .h-10 {
+  height: 2.5rem;
+}
+
+footer .fa-lg {
+  font-size: 1.33333em;
+  line-height: 0.75em;
+  vertical-align: -0.0667em;
+}
+
+footer .mt-0\.5 {
+  margin-top: 0.125rem;
+}
+
+footer .mt-6 {
+  margin-top: 1.5rem;
+}
+
+footer .rounded-full {
+  border-radius: 9999px;
+}
+
+footer .text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+footer .text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+footer .text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+footer .font-semibold {
+  font-weight: 600;
+}
+
+footer .font-bold {
+  font-weight: 700;
+}
+
+footer .leading-relaxed {
+  line-height: 1.625;
+}
+
+footer .mb-4 {
+  margin-bottom: 1rem;
+}
+
+footer .text-uppercase {
+  text-transform: uppercase;
+}
+
+/* Additional styles for the new footer */
+footer a {
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: none;
+}
+
+footer .space-y-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+}
+
+footer .space-y-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
+}
+
+footer .space-x-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+footer .space-x-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.75rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+/* Ensure Font Awesome icons are visible */
+footer .fab, footer .fas {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  color: inherit;
+  font-family: "Font Awesome 5 Brands", "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+/* Specific styles for social media icons */
+footer .social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: hsl(var(--primary-foreground));
+}
+
+/* Ensure social media icons are visible and centered */
+footer .fab.fa-facebook-f,
+footer .fab.fa-twitter,
+footer .fab.fa-youtube,
+footer .fab.fa-linkedin-in {
+  color: hsl(var(--primary-foreground));
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Fix for social media icon centering */
+.social-media-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+/* Padding and margin utilities */
+footer .pl-4 {
+  padding-left: 1rem;
+}
+
+footer .pr-4 {
+  padding-right: 1rem;
+}
+
+footer .ml-4 {
+  margin-left: 1rem;
+}
+
+footer .mr-4 {
+  margin-right: 1rem;
+}
+
+/* Alternative approach for moving content to the left */
+.university-info-left {
+  transform: translateX(-1rem);
+}
+
+/* Newsletter form styles */
+#newsletter-form input {
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+#newsletter-form input:focus {
+  outline: none;
+  border-color: hsl(var(--gold));
+  box-shadow: 0 0 0 2px hsl(var(--gold) / 0.2);
+}
+
+#newsletter-form button {
+  background-color: hsl(var(--gold));
+  color: hsl(var(--gold-foreground));
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#newsletter-form button:hover {
+  background-color: hsl(var(--gold-hover));
+}
+
+/* Footer notification styles */
+.footer-notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  max-width: 300px;
+}
+
+.footer-notification.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.footer-notification.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.footer-notification.info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
+/* Loading, success, and error animation states */
+#newsletter-form.loading button {
+  position: relative;
+  color: transparent;
+}
+
+#newsletter-form.loading button::after {
+  content: "";
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  top: 50%;
+  left: 50%;
+  margin-left: -0.5rem;
+  margin-top: -0.5rem;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#newsletter-form.success {
+  border-color: #28a745;
+}
+
+#newsletter-form.error {
+  border-color: #dc3545;
+}

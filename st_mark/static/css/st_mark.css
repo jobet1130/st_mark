@@ -138,12 +138,38 @@
   border-color: hsl(var(--border));
 }
 
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   font-family: 'Inter', sans-serif;
+  padding-top: 70px; /* Account for fixed navbar */
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  width: 100%;
+  min-width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
+}
+
+main {
+  min-height: calc(100vh - 70px - 300px); /* Adjust for navbar and footer approx heights */
+}
+
+/* Ensure footer spans full width */
+footer {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }

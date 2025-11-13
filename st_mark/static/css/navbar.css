@@ -14,10 +14,9 @@
     border-radius: 0.25rem;
     padding: 0.5rem 1rem;
     text-align: center;
-    transition: all 0.3s ease;
 }
 
 /* Mobile menu animations */
 .collapse.navbar-collapse {
-    transition: max-height 0.3s ease, opacity 0.3s ease;
+    transition: none;
 }

@@ -35,6 +35,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/all.min.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/st_mark.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
 
         {% block extra_css %}
         {# Override this in templates to add extra stylesheets #}
@@ -44,16 +45,20 @@
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
-        <header>
-            {% include 'layouts/navbar.html' %}
-        </header>
+        {% include 'layouts/navbar.html' %}
+
+        <main class="flex-shrink-0">
         {% block content %}{% endblock %}
+        </main>
+
+        {% include 'layouts/footer.html' %}
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/st_mark.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/navbar.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/footer.js' %}"></script>
 
         {% block extra_js %}
         {# Override this in templates to add extra javascript #}
