@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags static %}
+
+{% block body_class %}template-blogindexpage{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'news/css/blog.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="mb-4">{{ page.title }}</h1>
+            
+            {% if page.intro %}
+            <div class="intro mb-5 p-4 bg-light rounded">
+                {{ page.intro|richtext }}
+            </div>
+            {% endif %}
+            
+            <div class="blog-posts-list">
+                {% for post in blogpages %}
+                    <div class="blog-post-item card mb-4 shadow-sm">
+                        <div class="card-body">
+                            <h2 class="card-title">
+                                <a href="{% pageurl post %}" class="text-decoration-none">{{ post.title }}</a>
+                            </h2>
+                            <p class="meta text-muted mb-2">
+                                <i class="fas fa-calendar me-1"></i>
+                                {{ post.first_published_at|date:"F j, Y" }}
+                            </p>
+                            {% if post.specific.intro %}
+                                <p class="card-text">{{ post.specific.intro }}</p>
+                            {% endif %}
+                            <a href="{% pageurl post %}" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+    <script type="text/javascript" src="{% static 'news/js/blog.js' %}"></script>
+{% endblock %}

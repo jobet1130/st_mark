@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_class %}template-news-redirect{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <h1>Redirecting to News & Blogs</h1>
+            <p class="lead">You are being redirected to our news and blog section.</p>
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="mt-3">
+                If you are not redirected automatically, 
+                <a href="{% url 'news-redirect' %}">click here</a> to go to the news section.
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Redirect after 2 seconds
+    setTimeout(function() {
+        window.location.href = "{% url 'news-redirect' %}";
+    }, 2000);
+</script>
+{% endblock %}

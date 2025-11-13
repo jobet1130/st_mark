@@ -1,4 +1,5 @@
 from wagtail.blocks import StructBlock, CharBlock, TextBlock, ListBlock
+from wagtail.images.blocks import ImageChooserBlock
 
 
 class WelcomeSectionBlock(StructBlock):
@@ -44,3 +45,59 @@ class WelcomeSectionBlock(StructBlock):
         icon = "placeholder"
         label = "Welcome Section"
         template = "components/welcome_section.html"
+
+
+class NewsItemBlock(StructBlock):
+    """A block for individual news items."""
+    
+    title = CharBlock(
+        required=True,
+        max_length=200,
+        help_text="News title"
+    )
+    
+    date = CharBlock(
+        required=True,
+        max_length=100,
+        help_text="Publication date"
+    )
+    
+    excerpt = TextBlock(
+        required=True,
+        max_length=500,
+        help_text="Brief excerpt of the news article"
+    )
+    
+    image = ImageChooserBlock(
+        required=True,
+        help_text="News image"
+    )
+    
+    class Meta:
+        icon = "doc-full"
+        label = "News Item"
+
+
+class NewsSectionBlock(StructBlock):
+    """A block for the news section with configurable news items."""
+    
+    heading = CharBlock(
+        required=True,
+        max_length=200,
+        help_text="Section heading",
+        default="Latest News & Announcements"
+    )
+    
+    subheading = TextBlock(
+        required=False,
+        max_length=500,
+        help_text="Section subheading or description",
+        default="Stay updated with the latest happenings, achievements, and events at St. Mark University."
+    )
+    
+    news_items = ListBlock(NewsItemBlock(), help_text="List of news items")
+    
+    class Meta:
+        icon = "folder-open-inverse"
+        label = "News Section"
+        template = "components/news_section.html"

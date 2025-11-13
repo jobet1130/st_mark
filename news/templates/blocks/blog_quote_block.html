@@ -1,0 +1,10 @@
+<div class="blog-quote-block card mb-4 border-start border-primary border-4">
+    <div class="card-body">
+        <blockquote class="mb-0">
+            <p class="fst-italic">{{ self.quote }}</p>
+            {% if self.author %}
+                <cite class="d-block text-end fw-bold mt-2">— {{ self.author }}</cite>
+            {% endif %}
+        </blockquote>
+    </div>
+</div>

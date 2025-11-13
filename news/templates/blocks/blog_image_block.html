@@ -1,0 +1,9 @@
+{% load wagtailimages_tags %}
+<div class="blog-image-block card mb-4">
+    <div class="card-body text-center">
+        {% image self.image width-800 class="img-fluid rounded" %}
+        {% if self.caption %}
+            <p class="caption card-text text-muted mt-2">{{ self.caption }}</p>
+        {% endif %}
+    </div>
+</div>

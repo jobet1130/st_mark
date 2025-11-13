@@ -9,6 +9,7 @@ from wagtail.documents import urls as wagtaildocs_urls
 from search import views as search_views
 from . import views
 from home import views as home_views
+from news import views as news_views
 
 urlpatterns = [
     path("django-admin/", admin.site.urls),
@@ -23,6 +24,12 @@ urlpatterns = [
     path("api/statistics/", home_views.StatisticsAPIView.as_view(), name="statistics-api"),
     path("api/quick-links-click/", home_views.QuickLinksClickAPIView.as_view(), name="quick-links-click-api"),
     path("api/welcome-section/", home_views.WelcomeSectionAPIView.as_view(), name="welcome-section-api"),
+    path("api/news/", home_views.NewsAPIView.as_view(), name="news-api"),
+    path("api/blog/stats/", news_views.BlogStatsView.as_view(), name="blog-stats-api"),
+    path("api/blog/click/", news_views.BlogClickView.as_view(), name="blog-click-api"),
+    path("news/", news_views.redirect_to_news, name="news-redirect"),
+    path("blogs/", news_views.news_redirect_view, name="blogs-redirect"),
+    path("news-redirect/", news_views.news_landing_page, name="news-landing"),
 ]
 
 if settings.DEBUG:

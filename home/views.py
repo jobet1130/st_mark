@@ -160,6 +160,46 @@ class QuickLinksClickAPIView(View):
             }, status=500)
 
 
+class NewsAPIView(View):
+    """
+    API endpoint for news section content
+    """
+    
+    def get(self, request):
+        """
+        Return news items
+        """
+        data = [
+            {
+                'id': 1,
+                'title': "St. Mark University Ranks Among Top 100 Universities Globally",
+                'date': "November 8, 2025",
+                'excerpt': "Our commitment to academic excellence and innovative research has earned us recognition in the latest QS World University Rankings.",
+                'image': "/static/images/campus-building.jpg"
+            },
+            {
+                'id': 2,
+                'title': "New Research Center for Artificial Intelligence Inaugurated",
+                'date': "November 5, 2025",
+                'excerpt': "State-of-the-art facilities will advance AI research and provide students with cutting-edge learning opportunities.",
+                'image': "/static/images/students-studying.jpg"
+            },
+            {
+                'id': 3,
+                'title': "2024 Graduation Ceremony Celebrates 2,500 Graduates",
+                'date': "October 28, 2025",
+                'excerpt': "Our latest graduating class is ready to make their mark on the world with the knowledge and skills gained at St. Mark University.",
+                'image': "/static/images/graduation.jpg"
+            }
+        ]
+        
+        return JsonResponse({
+            'status': 'success',
+            'data': data,
+            'message': 'News items retrieved successfully'
+        })
+
+
 class WelcomeSectionAPIView(View):
     """
     API endpoint for welcome section content and interactions
