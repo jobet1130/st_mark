@@ -1,0 +1,23 @@
+/* Logo circle */
+.logo-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1A4D8F, #123B70);
+    color: #fff;
+}
+
+/* Navbar hover effects */
+.navbar-nav .nav-link:hover {
+    color: #1A4D8F !important;
+    background-color: #E8F0FE !important;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* Mobile menu animations */
+.collapse.navbar-collapse {
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
