@@ -5,13 +5,16 @@
 
 {% block extra_css %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/hero.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/quick_links.css' %}">
 {% endblock extra_css %}
 
 {% block content %}
 {% include 'components/hero.html' %}
+{% include 'components/quick_links.html' %}
 {% endblock content %}
 
 {% block extra_js %}
 <script type="text/javascript" src="{% static 'js/hero.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/quick_links.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/home.js' %}"></script>
 {% endblock extra_js %}

@@ -15,11 +15,6 @@ class HeroSection {
     $('.btn-primary, .btn-warning').on('click', (e) => {
       this.handleButtonClick(e);
     });
-
-    // Handle scroll indicator click
-    $('.animate-bounce').on('click', () => {
-      this.scrollToContent();
-    });
   }
 
   handleButtonClick(event) {
@@ -97,21 +92,41 @@ class HeroSection {
     }
   }
 
-  scrollToContent() {
-    // Animate scroll to main content
-    const target = $('main').offset().top - 70; // Account for fixed navbar
-    
-    $('html, body').animate({
-      scrollTop: target
-    }, 800, 'easeInOutCubic');
-  }
-
   handleError(message) {
     // Handle errors with user feedback
     console.error('HeroSection Error:', message);
     
-    // In a real implementation, you might show a notification to the user
-    // For now, we'll just log the error
+    // Show user-friendly error notification
+    this.showNotification({
+      type: 'error',
+      message: message || 'An unexpected error occurred. Please try again.',
+      duration: 5000
+    });
+  }
+  
+  showNotification(options) {
+    // Create and display a notification to the user
+    const { type, message, duration = 3000 } = options;
+    
+    // Remove any existing notifications
+    $('.hero-notification').remove();
+    
+    // Create notification element
+    const notification = $(`
+      <div class="hero-notification alert alert-${type === 'error' ? 'danger' : 'info'} position-fixed top-0 start-50 translate-middle-x mt-3" style="z-index: 1050;">
+        ${message}
+      </div>
+    `);
+    
+    // Add to DOM
+    $('body').append(notification);
+    
+    // Auto remove after duration
+    setTimeout(() => {
+      notification.fadeOut(300, function() {
+        $(this).remove();
+      });
+    }, duration);
   }
 }
 

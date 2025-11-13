@@ -112,3 +112,49 @@ class StatisticsAPIView(View):
             'data': data,
             'message': 'Statistics retrieved successfully'
         })
+
+
+class QuickLinksClickAPIView(View):
+    """
+    API endpoint for tracking quick link clicks
+    """
+    
+    @method_decorator(csrf_exempt)
+    def post(self, request):
+        """
+        Handle quick link click tracking
+        """
+        try:
+            # Parse JSON data from request
+            data = json.loads(request.body.decode('utf-8'))
+            title = data.get('title', '')
+            url = data.get('url', '')
+            timestamp = data.get('timestamp', '')
+            user_agent = data.get('userAgent', '')
+            referrer = data.get('referrer', '')
+            
+            # Log the click (in a real app, you might save this to a database)
+            print(f"Quick link '{title}' clicked, navigating to {url} at {timestamp}")
+            print(f"User agent: {user_agent}")
+            print(f"Referrer: {referrer}")
+            
+            # Return success response
+            return JsonResponse({
+                'status': 'success',
+                'message': 'Click tracked successfully',
+                'data': {
+                    'title': title,
+                    'url': url,
+                    'timestamp': timestamp
+                }
+            })
+        except json.JSONDecodeError:
+            return JsonResponse({
+                'status': 'error',
+                'message': 'Invalid JSON data'
+            }, status=400)
+        except Exception as e:
+            return JsonResponse({
+                'status': 'error',
+                'message': f'An error occurred: {str(e)}'
+            }, status=500)

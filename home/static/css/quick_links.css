@@ -1,0 +1,76 @@
+/* Quick Links Section Styles */
+
+.quick-links-section {
+  padding: 4rem 0;
+}
+
+.quick-links-section h2 {
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: hsl(210 15% 20%);
+}
+
+.quick-link-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.quick-link-card:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 8px 30px -4px hsl(210 20% 70% / 0.25);
+  border-color: hsl(210 80% 42%);
+}
+
+.quick-link-card:hover .icon-wrapper {
+  transform: scale(1.1);
+}
+
+.icon-wrapper {
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  background-color: hsl(210 40% 96%); /* Light blue background */
+}
+
+.card-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.quick-link-card:hover .card-title {
+  color: hsl(210 80% 42%);
+}
+
+.card-text {
+  line-height: 1.5;
+}
+
+/* Color classes for icons */
+.text-primary {
+  color: hsl(210 80% 42%) !important;
+}
+
+.text-gold {
+  color: hsl(45 95% 55%) !important;
+}
+
+.text-accent {
+  color: hsl(210 60% 50%) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .quick-links-section {
+    padding: 2rem 0;
+  }
+  
+  .quick-links-section h2 {
+    margin-bottom: 1.5rem;
+  }
+}

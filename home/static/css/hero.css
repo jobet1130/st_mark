@@ -10,11 +10,6 @@
   z-index: 10;
 }
 
-/* Positioning utility */
-.bottom-8 {
-  bottom: 2rem;
-}
-
 /* Object fit utility for Bootstrap < 5 */
 .object-fit-cover {
   object-fit: cover;

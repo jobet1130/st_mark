@@ -21,6 +21,7 @@ urlpatterns = [
     path("api/hero-navigation/", home_views.HeroAPIView.as_view(), name="hero-navigation-api"),
     path("api/site-info/", home_views.SiteInfoAPIView.as_view(), name="site-info-api"),
     path("api/statistics/", home_views.StatisticsAPIView.as_view(), name="statistics-api"),
+    path("api/quick-links-click/", home_views.QuickLinksClickAPIView.as_view(), name="quick-links-click-api"),
 ]
 
 if settings.DEBUG:

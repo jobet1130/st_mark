@@ -332,6 +332,17 @@ class AjaxHandler {
             this.deleteCookie(testCookie);
             return cookieEnabled;
         } catch (e) {
+
+            // Check if cookies are enabled by attempting to set and retrieve a temporary cookie
+            const cookieName = `cookietest=${Date.now()}`;
+            document.cookie = `${cookieName}; SameSite=Strict`;
+            const isEnabled = document.cookie.includes(cookieName);
+            // Clean up the test cookie
+            if (isEnabled) {
+
+                document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Strict`;
+            }
+            return isEnabled;
             return false;
         }
     }
