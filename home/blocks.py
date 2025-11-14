@@ -113,6 +113,53 @@ class EventItemBlock(StructBlock):
         icon = "date"
         label = "Event Item"
 
+class GalleryImageBlock(StructBlock):
+    """A block for individual gallery images."""
+    
+    image = ImageChooserBlock(
+        required=True,
+        help_text="Gallery image"
+    )
+    
+    alt_text = CharBlock(
+        required=True,
+        max_length=200,
+        help_text="Alternative text for the image"
+    )
+    
+    class Meta:
+        icon = "image"
+        label = "Gallery Image"
+
+class GallerySectionBlock(StructBlock):
+    """A block for the gallery section with configurable images."""
+    
+    heading = CharBlock(
+        required=True,
+        max_length=200,
+        help_text="Section heading",
+        default="Campus Life"
+    )
+    
+    description = TextBlock(
+        required=False,
+        max_length=500,
+        help_text="Section description",
+        default="Experience the vibrant community and beautiful campus at St. Mark University."
+    )
+    
+    gallery_images = ListBlock(
+        GalleryImageBlock(), 
+        help_text="List of gallery images",
+        min_num=4,
+        max_num=4
+    )
+    
+    class Meta:
+        icon = "image"
+        label = "Gallery Section"
+        template = "components/gallery_section.html"
+
 class EventsSectionBlock(StructBlock):
     heading = CharBlock(required=True, max_length=200, default="Upcoming Events", help_text="Section heading")
     description = TextBlock(required=False, max_length=500, default="Join us for exciting events, workshops, and activities throughout the academic year.", help_text="Section description")
