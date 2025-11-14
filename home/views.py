@@ -341,3 +341,38 @@ class EventsAPIView(View):
             'data': data,
             'message': 'Events retrieved successfully'
         })
+
+
+class GalleryAPIView(View):
+    """
+    API endpoint for gallery section content
+    """
+    
+    def get(self, request):
+        """
+        Return gallery images
+        """
+        data = [
+            {
+                'src': '/static/images/campus-hero.jpg',
+                'alt': 'Beautiful campus grounds'
+            },
+            {
+                'src': '/static/images/students-studying.jpg',
+                'alt': 'Students collaborating'
+            },
+            {
+                'src': '/static/images/campus-building.jpg',
+                'alt': 'Modern facilities'
+            },
+            {
+                'src': '/static/images/graduation.jpg',
+                'alt': 'Graduation ceremony'
+            }
+        ]
+        
+        return JsonResponse({
+            'status': 'success',
+            'data': data,
+            'message': 'Gallery images retrieved successfully'
+        })

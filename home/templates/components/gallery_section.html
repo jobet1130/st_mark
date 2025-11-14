@@ -1,0 +1,40 @@
+{% load static %}
+<section class="py-5 bg-light gallery-section">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="display-5 fw-bold text-dark mb-3">{{ value.heading|default:"Campus Life" }}</h2>
+      <p class="text-muted fs-5 max-w-2xl mx-auto">
+        {{ value.description|default:"Experience the vibrant community and beautiful campus at St. Mark University." }}
+      </p>
+    </div>
+
+    <div class="gallery-container">
+      <!-- Gallery images will be dynamically loaded here if no images are provided -->
+      {% if value.gallery_images %}
+        <div class="row g-4">
+          {% for image in value.gallery_images %}
+          <div class="col-lg-3 col-md-6 col-12">
+            <div class="gallery-item rounded overflow-hidden position-relative cursor-pointer shadow-sm">
+              {% if image.image %}
+                <img src="{{ image.image.url }}" alt="{{ image.alt_text }}" class="w-100 h-100 object-fit-cover">
+              {% else %}
+                <!-- Fallback image if none provided -->
+                <img src="{% static 'images/campus-hero.jpg' %}" alt="{{ image.alt_text }}" class="w-100 h-100 object-fit-cover">
+              {% endif %}
+              <div class="gallery-overlay rounded">
+                <p class="gallery-caption mb-0">{{ image.alt_text }}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="text-center mt-5">
+      <a href="/gallery" class="btn btn-primary btn-lg">
+        View Full Gallery <i class="fas fa-arrow-right ms-2"></i>
+      </a>
+    </div>
+  </div>
+</section>

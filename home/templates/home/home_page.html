@@ -9,6 +9,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/welcome_section.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/news_section.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/events_section.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/gallery_section.css' %}">
 {% endblock extra_css %}
 
 {% block content %}
@@ -24,6 +25,9 @@
 
 <!-- Ensure events section is always visible -->
 {% include 'components/events_section.html' %}
+
+<!-- Gallery section -->
+{% include 'components/gallery_section.html' %}
 {% endblock content %}
 
 {% block extra_js %}
@@ -32,5 +36,6 @@
 <script type="text/javascript" src="{% static 'js/quick_links.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/news_section.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/events_section.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/gallery_section.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/home.js' %}"></script>
 {% endblock extra_js %}
