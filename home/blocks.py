@@ -101,3 +101,24 @@ class NewsSectionBlock(StructBlock):
         icon = "folder-open-inverse"
         label = "News Section"
         template = "components/news_section.html"
+
+class EventItemBlock(StructBlock):
+    title = CharBlock(required=True, max_length=200, help_text="Event title")
+    date = CharBlock(required=True, max_length=100, help_text="Event date")
+    time = CharBlock(required=True, max_length=100, help_text="Event time")
+    location = CharBlock(required=True, max_length=200, help_text="Event location")
+    description = TextBlock(required=True, max_length=500, help_text="Event description")
+    
+    class Meta:
+        icon = "date"
+        label = "Event Item"
+
+class EventsSectionBlock(StructBlock):
+    heading = CharBlock(required=True, max_length=200, default="Upcoming Events", help_text="Section heading")
+    description = TextBlock(required=False, max_length=500, default="Join us for exciting events, workshops, and activities throughout the academic year.", help_text="Section description")
+    events = ListBlock(EventItemBlock(), help_text="List of events")
+    
+    class Meta:
+        icon = "calendar"
+        label = "Events Section"
+        template = "components/events_section.html"

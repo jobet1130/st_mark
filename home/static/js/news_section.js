@@ -24,14 +24,23 @@ class NewsSection {
       method: 'GET',
       dataType: 'json',
       success: (response) => {
-        if (response.status === 'success' && Array.isArray(response.data)) {
+        if (response.status === 'success' && Array.isArray(response.data) && response.data.length > 0) {
           this.renderNews(response.data);
+          // Show the "View All News" button since we have data
+          this.loadMoreBtn.show();
         } else {
-          console.error('Invalid data format received from API');
+          // If no data from API, keep the static content and hide the "View All News" button if there are no news items
+          if (this.newsContainer.find('.col-md-6').length === 0) {
+            this.loadMoreBtn.hide();
+          }
         }
       },
       error: (xhr, status, error) => {
         console.error('Error loading news:', error);
+        // If API fails, keep the static content and hide the "View All News" button if there are no news items
+        if (this.newsContainer.find('.col-md-6').length === 0) {
+          this.loadMoreBtn.hide();
+        }
       }
     });
   }

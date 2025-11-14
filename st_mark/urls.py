@@ -25,6 +25,7 @@ urlpatterns = [
     path("api/quick-links-click/", home_views.QuickLinksClickAPIView.as_view(), name="quick-links-click-api"),
     path("api/welcome-section/", home_views.WelcomeSectionAPIView.as_view(), name="welcome-section-api"),
     path("api/news/", home_views.NewsAPIView.as_view(), name="news-api"),
+    path("api/events/", home_views.EventsAPIView.as_view(), name="events-api"),
     path("api/blog/stats/", news_views.BlogStatsView.as_view(), name="blog-stats-api"),
     path("api/blog/click/", news_views.BlogClickView.as_view(), name="blog-click-api"),
     path("news/", news_views.redirect_to_news, name="news-redirect"),

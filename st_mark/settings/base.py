@@ -190,4 +190,5 @@ WAGTAILDOCS_EXTENSIONS = [
     "txt",
     "xlsx",
     "zip",
+    "ico"
 ]

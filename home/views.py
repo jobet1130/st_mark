@@ -298,3 +298,46 @@ class WelcomeSectionAPIView(View):
                 'status': 'error',
                 'message': f'An error occurred: {str(e)}'
             }, status=500)
+
+
+class EventsAPIView(View):
+    """
+    API endpoint for events section content
+    """
+    
+    def get(self, request):
+        """
+        Return upcoming events
+        """
+        data = [
+            {
+                'id': 1,
+                'title': "Open House for Prospective Students",
+                'date': "November 20, 2025",
+                'time': "9:00 AM - 4:00 PM",
+                'location': "Main Campus",
+                'description': "Explore our campus, meet faculty, and learn about our programs."
+            },
+            {
+                'id': 2,
+                'title': "Annual Research Symposium",
+                'date': "December 5, 2025",
+                'time': "10:00 AM - 5:00 PM",
+                'location': "Science Building Auditorium",
+                'description': "Showcase of groundbreaking research from students and faculty."
+            },
+            {
+                'id': 3,
+                'title': "Career Fair 2025",
+                'date': "December 12, 2025",
+                'time': "11:00 AM - 6:00 PM",
+                'location': "University Center",
+                'description': "Connect with top employers and explore career opportunities."
+            }
+        ]
+        
+        return JsonResponse({
+            'status': 'success',
+            'data': data,
+            'message': 'Events retrieved successfully'
+        })
