@@ -1,0 +1,66 @@
+.testimonials-section {
+  padding: 5rem 0;
+  background-color: #f8f9fa;
+}
+
+.testimonials-container .card {
+  transition: all 0.3s ease-in-out;
+  border-top: 4px solid #d4af37;
+}
+
+.testimonials-container .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.testimonials-container .quote-icon {
+  font-size: 1.5rem;
+}
+
+.testimonials-container .card-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Gold color for the border and quote icon */
+.border-top-gold {
+  border-top: 4px solid #d4af37 !important;
+}
+
+.text-gold {
+  color: #d4af37;
+}
+
+/* Hover effect */
+.hover-shadow-elegant-hover {
+  transition: all 0.3s ease-in-out;
+}
+
+.hover-shadow-elegant-hover:hover {
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.hover-lift {
+  transition: transform 0.3s ease-in-out;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .testimonials-section {
+    padding: 3rem 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .testimonials-section {
+    padding: 2rem 0;
+  }
+  
+  .testimonials-container .card-text {
+    font-size: 1rem;
+  }
+}

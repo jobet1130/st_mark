@@ -169,3 +169,59 @@ class EventsSectionBlock(StructBlock):
         icon = "calendar"
         label = "Events Section"
         template = "components/events_section.html"
+
+
+class TestimonialBlock(StructBlock):
+    """A block for individual testimonials."""
+    
+    name = CharBlock(
+        required=True,
+        max_length=100,
+        help_text="Name of the person giving the testimonial"
+    )
+    
+    role = CharBlock(
+        required=True,
+        max_length=200,
+        help_text="Role/position of the person (e.g., 'Computer Science Graduate, Class of 2024')"
+    )
+    
+    quote = TextBlock(
+        required=True,
+        max_length=1000,
+        help_text="The testimonial text"
+    )
+    
+    class Meta:
+        icon = "openquote"
+        label = "Testimonial"
+
+
+class TestimonialsSectionBlock(StructBlock):
+    """A block for the testimonials section with configurable testimonials."""
+    
+    heading = CharBlock(
+        required=True,
+        max_length=200,
+        help_text="Section heading",
+        default="What Our Community Says"
+    )
+    
+    description = TextBlock(
+        required=False,
+        max_length=500,
+        help_text="Section description",
+        default="Hear from students, faculty, and alumni about their experiences at St. Mark University."
+    )
+    
+    testimonials = ListBlock(
+        TestimonialBlock(), 
+        help_text="List of testimonials",
+        min_num=3,
+        max_num=3
+    )
+    
+    class Meta:
+        icon = "openquote"
+        label = "Testimonials Section"
+        template = "components/testimonials_section.html"

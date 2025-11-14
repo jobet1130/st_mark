@@ -6,7 +6,7 @@ from wagtail import blocks  # We'll use this to define an inline block
 from wagtail.admin.panels import FieldPanel
 
 # Import your custom blocks
-from home.blocks import WelcomeSectionBlock, NewsSectionBlock, EventsSectionBlock, GallerySectionBlock
+from home.blocks import WelcomeSectionBlock, NewsSectionBlock, EventsSectionBlock, GallerySectionBlock, TestimonialsSectionBlock
 
 
 # Optional inline block example to use 'blocks' import
@@ -30,6 +30,7 @@ class HomePage(Page):
             ('news_section', NewsSectionBlock()),
             ('events_section', EventsSectionBlock()),
             ('gallery_section', GallerySectionBlock()),
+            ('testimonials_section', TestimonialsSectionBlock()),
         ],
         use_json_field=True,
         blank=True

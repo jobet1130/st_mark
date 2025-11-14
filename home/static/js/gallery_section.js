@@ -57,16 +57,12 @@ class GallerySection {
     html += '<div class="row g-4">';
     
     images.forEach((image, index) => {
-      // Calculate Bootstrap column classes for responsive grid
-      let colClass = 'col-md-6';
-      if (images.length === 4) {
-        colClass = 'col-lg-3 col-md-6';
-      } else if (images.length === 3) {
-        colClass = 'col-lg-4 col-md-6';
-      }
-
+      // Use proper Bootstrap column classes for responsive grid
+      // On large screens: 4 columns (col-lg-3)
+      // On medium screens: 2 columns (col-md-6)
+      // On small screens: 1 column (col-12)
       html += `
-        <div class="${colClass} col-12">
+        <div class="col-lg-3 col-md-6 col-12">
           <div class="gallery-item rounded overflow-hidden position-relative cursor-pointer shadow-sm">
             <img src="${image.src}" alt="${image.alt}" class="w-100 h-100 object-fit-cover">
             <div class="gallery-overlay rounded">

@@ -3,11 +3,6 @@
   background-color: #f8f9fa;
 }
 
-.gallery-container .row {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .gallery-container .gallery-item {
   position: relative;
   height: 288px;

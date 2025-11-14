@@ -376,3 +376,40 @@ class GalleryAPIView(View):
             'data': data,
             'message': 'Gallery images retrieved successfully'
         })
+
+
+class TestimonialsAPIView(View):
+    """
+    API endpoint for testimonials section content
+    """
+    
+    def get(self, request):
+        """
+        Return testimonials
+        """
+        data = [
+            {
+                'id': 1,
+                'name': 'Sarah Johnson',
+                'role': 'Computer Science Graduate, Class of 2024',
+                'quote': 'St. Mark University provided me with not just education, but a transformative experience. The hands-on projects and mentorship from world-class faculty prepared me for my dream career in tech.'
+            },
+            {
+                'id': 2,
+                'name': 'Dr. Michael Chen',
+                'role': 'Professor of Engineering',
+                'quote': 'Teaching at St. Mark University has been incredibly rewarding. The university\'s commitment to innovation and research excellence creates an environment where both faculty and students thrive.'
+            },
+            {
+                'id': 3,
+                'name': 'Emily Rodriguez',
+                'role': 'Business Administration Student',
+                'quote': 'The diverse community and global perspective I\'ve gained here are invaluable. St. Mark University truly prepares you to be a leader in today\'s interconnected world.'
+            }
+        ]
+        
+        return JsonResponse({
+            'status': 'success',
+            'data': data,
+            'message': 'Testimonials retrieved successfully'
+        })

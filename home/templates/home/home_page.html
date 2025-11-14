@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/news_section.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/events_section.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/gallery_section.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/testimonials_section.css' %}">
 {% endblock extra_css %}
 
 {% block content %}
@@ -28,6 +29,9 @@
 
 <!-- Gallery section -->
 {% include 'components/gallery_section.html' %}
+
+<!-- Testimonials section -->
+{% include 'components/testimonials_section.html' %}
 {% endblock content %}
 
 {% block extra_js %}
@@ -37,5 +41,6 @@
 <script type="text/javascript" src="{% static 'js/news_section.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/events_section.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/gallery_section.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/testimonials_section.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/home.js' %}"></script>
 {% endblock extra_js %}
